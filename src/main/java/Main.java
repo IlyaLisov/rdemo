@@ -1,15 +1,23 @@
-import model.BillingStatus;
 import model.Transaction;
+import model.User;
+import repository.UserRepository;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
 
+    private static final UserRepository repository = new UserRepository();
+
     public static void main(String[] args) {
-        List<Transaction> transactions = List.of(
+        List<Transaction> transactions = getTransactions();
+        processTransactions(transactions);
+        List<User> users = repository.findAll();
+        users.forEach(System.out::println);
+    }
+
+    public static List<Transaction> getTransactions() {
+        return List.of(
                 new Transaction(
                         1L,
                         BigDecimal.valueOf(1000),
@@ -35,30 +43,15 @@ public class Main {
                         1500000004L
                 )
         );
-
-        Map<Long, BillingStatus> users = processTransactions(transactions);
-        users.forEach((userId, billingStatus) -> {
-            System.out.println("User ID: " + userId);
-            System.out.println("Ad delivery pennies: " + billingStatus.getAdDeliveryPennies());
-            System.out.println("Ad impressions pennies: " + billingStatus.getAdImpressionsPennies());
-            System.out.println();
-        });
     }
 
-    public static Map<Long, BillingStatus> processTransactions(List<Transaction> transactions) {
-        Map<Long, BillingStatus> users = new HashMap<>();
+    public static void processTransactions(List<Transaction> transactions) {
         for (Transaction transaction : transactions) {
-            BillingStatus status = users.getOrDefault(
-                    transaction.getUserId(),
-                    new BillingStatus()
-            );
-            status.updateBillingStatus(transaction);
-            users.put(
-                    transaction.getUserId(),
-                    status
-            );
+            User user = repository.find(transaction.getUserId())
+                    .orElse(new User(transaction.getUserId()));
+            user.getStatus().updateBillingStatus(transaction);
+            repository.save(user);
         }
-        return users;
     }
 
 }
