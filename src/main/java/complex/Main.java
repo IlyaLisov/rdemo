@@ -1,6 +1,8 @@
-import model.Transaction;
-import model.User;
-import repository.UserRepository;
+package complex;
+
+import complex.model.Transaction;
+import complex.model.User;
+import complex.repository.UserRepository;
 
 import java.math.BigDecimal;
 import java.util.List;

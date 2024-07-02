@@ -1,6 +1,6 @@
-package repository;
+package complex.repository;
 
-import model.User;
+import complex.model.User;
 
 import java.util.HashMap;
 import java.util.List;
