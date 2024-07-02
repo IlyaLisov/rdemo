@@ -2,27 +2,26 @@ package repository;
 
 import model.User;
 
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 public class UserRepository {
 
-    private final Set<User> users = new HashSet<>();
+    private final Map<Long, User> users = new HashMap<>();
 
     public Optional<User> find(Long id) {
-        return users.stream()
-                .filter(user -> user.getId().equals(id))
-                .findFirst();
+        User user = users.get(id);
+        return Optional.ofNullable(user);
     }
 
     public List<User> findAll() {
-        return List.copyOf(users);
+        return List.copyOf(users.values());
     }
 
     public void save(User user) {
-        users.add(user);
+        users.put(user.getId(), user);
     }
 
 }
