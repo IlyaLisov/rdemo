@@ -12,7 +12,8 @@ You need to parse this JSON into Java objects and do some operations on them:
 **NOTE:** `window` field is length of view in seconds. If it is one number, view
 started from the start of video, else it is a range.
 
-**NOTE:** View for author is counted if sum of viewed windows is longer than 30s.
+**NOTE:** View for author is counted if sum of viewed windows is longer than
+30s.
 
 2. Find the most viewed video and return its title, duration and views count.
 
@@ -24,3 +25,15 @@ started from the start of video, else it is a range.
    comments.
 
 **NOTE:** Spam comments are comments with urls to websites.
+
+6. We want to understand how polite our community is. In polite community, more
+   than 50% of entities (videos, comments) have positive rating. Return entity
+   type (`Video`, `Comment`), entity id, rating for all corresponding entities
+   and result of 'polite' test.
+
+**HINT:** For this task you need to reuse abstract class in videos and comments
+entity.
+
+**HINT:** Use enums for persistent data types (find them).
+
+**HINT:** Try to save entities in collections to reuse these objects in tasks.
