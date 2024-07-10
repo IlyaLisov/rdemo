@@ -1,7 +1,7 @@
-package simple;
+package task1.simple;
 
-import simple.model.BillingStatus;
-import simple.model.Transaction;
+import task1.simple.model.BillingStatus;
+import task1.simple.model.Transaction;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

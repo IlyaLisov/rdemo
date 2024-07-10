@@ -1,8 +1,8 @@
-package complex;
+package task1.complex;
 
-import complex.model.Transaction;
-import complex.model.User;
-import complex.repository.UserRepository;
+import task1.complex.model.Transaction;
+import task1.complex.model.User;
+import task1.complex.repository.UserRepository;
 
 import java.math.BigDecimal;
 import java.util.List;

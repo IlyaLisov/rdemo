@@ -1,4 +1,4 @@
-package complex.model;
+package task1.complex.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

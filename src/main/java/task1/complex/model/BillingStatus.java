@@ -1,12 +1,14 @@
-package simple.model;
+package task1.complex.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
+@ToString
 public class BillingStatus {
 
     private BigDecimal adDeliveryPennies;

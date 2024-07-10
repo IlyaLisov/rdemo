@@ -1,4 +1,4 @@
-package simple.model;
+package task1.complex.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,4 +17,3 @@ public class Transaction {
     private long transactionTimestamp;
 
 }
-
