@@ -27,12 +27,12 @@ started from the start of video, else it is a range.
 **NOTE:** Spam comments are comments with urls to websites.
 
 6. We want to understand how polite our community is. In polite community, more
-   than 50% of entities (videos, comments) have positive rating. Return entity
-   type (`Video`, `Comment`), entity id, rating for all corresponding entities
-   and result of 'polite' test.
+   than 50% of entities (videos, comments) have positive rating (likes -
+   dislikes > 0). Return entity type (`Video`, `Comment`), entity id, rating for
+   all corresponding entities and result of 'polite' test.
 
-**HINT:** For this task you need to reuse abstract class in videos and comments
-entity.
+**HINT:** For this task you need to use at least 2 abstract classes and 1
+functional interface.
 
 **HINT:** Use enums for persistent data types (find them).
 
